@@ -27,6 +27,7 @@ int main() {
     int choice;
     double balance;
 
+    double value;
     double percent;
     double part;
     int term;
@@ -39,15 +40,23 @@ int main() {
 
     switch (choice) {
     case 1 :
-        
+        cout << "Choose amout of input : " << endl;
+        cin >> value;
+
+        cout << Add(balance, value) << endl;
+        cout << balance << endl;
         break;
     case 2:
+        cout << "Choose amout of input : " << endl;
+        cin >> value;
 
+        cout << Sub(balance, value) << endl;
+        cout << balance << endl;
         break;
     case 3:
         cout << "Choose amout of deposit : " << endl;
         cin >> part;
-        cout << "Choose amout of perantage : " << endl;
+        cout << "Choose amout of peracentage : " << endl;
         cin >> percent;
         percent / 100;
         cout << "Enter termin : " << endl;
