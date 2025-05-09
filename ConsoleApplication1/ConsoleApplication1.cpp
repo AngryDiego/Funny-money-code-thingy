@@ -16,7 +16,7 @@ double Deposit(double& initialM, double part, double percent, int term) {
     initialM -= part;
     double result = part;
     for (int i = 1; i <= term; i++) {
-        result += (part * percent);
+        result += (part * (percent / 100));
     }
     result += initialM;
 
@@ -24,12 +24,11 @@ double Deposit(double& initialM, double part, double percent, int term) {
 }
 
 double Credit(double& initialM, double part, double percent, int term) {
-    initialM -= part;
     double result = part;
     for (int i = 1; i <= term; i++) {
-        result -= (part * percent);
+        result += (part * (percent / 100));
     }
-    result += initialM;
+    result -= initialM;
 
     return result;
 }
@@ -69,7 +68,6 @@ int main() {
         cin >> part;
         cout << "Choose amout of peracentage : " << endl;
         cin >> percent;
-        percent / 100;
         cout << "Enter termin : " << endl;
         cin >> term;
 
@@ -81,7 +79,6 @@ int main() {
         cin >> part;
         cout << "Choose amout of peracentage : " << endl;
         cin >> percent;
-        percent / 100;
         cout << "Enter termin : " << endl;
         cin >> term;
 
