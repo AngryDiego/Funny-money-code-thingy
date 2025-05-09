@@ -12,11 +12,11 @@ double Sub(double& initialM, double& subtraction) {
     return initialM;
 }
 
-double Deposit(double& initialM, double part, double percent, int term) {
+double Deposit(double& initialM, double part, double percent, int term) {     // баланс, скільки кладемо на депозит, відсоток депозиту, на який термін.         1000-1000.  ; 1000*(3/100) * term 
     initialM -= part;
     double result = part;
     for (int i = 1; i <= term; i++) {
-        result += (part * (percent / 100));
+        result += (part * (percent/100));                      
     }
     result += initialM;
 
@@ -24,13 +24,18 @@ double Deposit(double& initialM, double part, double percent, int term) {
 }
 
 double Credit(double& initialM, double part, double percent, int term) {
+
+    // 1000, 1000+2000, 5%, 10 
+    // balance 3000  -  2000 + (2000*0.05*10)
+    initialM += part;                           
     double result = part;
     for (int i = 1; i <= term; i++) {
-        result += (part * (percent / 100));
+        result += (part * (percent/100));
     }
-    result -= initialM;
-
-    return result;
+    cout << " Було на балансі " << initialM << endl;
+    initialM -= result;
+    cout << "Повернути повинен будеш " << result << endl;
+    return initialM;
 }
 
 int main() {
