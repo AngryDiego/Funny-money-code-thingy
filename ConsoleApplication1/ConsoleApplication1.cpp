@@ -23,6 +23,17 @@ double Deposit(double& initialM, double part, double percent, int term) {
     return result;
 }
 
+double Credit(double& initialM, double part, double percent, int term) {
+    initialM -= part;
+    double result = part;
+    for (int i = 1; i <= term; i++) {
+        result -= (part * percent);
+    }
+    result += initialM;
+
+    return result;
+}
+
 int main() {
     int choice;
     double balance;
@@ -35,7 +46,7 @@ int main() {
     cout << "Inpute amount of money: ";
     cin >> balance;
 
-    cout << "Choose an operation : \n1. Add \n2. Subtrackt \n3. Deposit" << endl;
+    cout << "Choose an operation : \n1. Add \n2. Subtrackt \n3. Deposit \n4. Credit" << endl;
     cin >> choice;
 
     switch (choice) {
@@ -63,6 +74,18 @@ int main() {
         cin >> term;
 
         cout << Deposit (balance, part, percent, term) << endl;
+        cout << balance << endl;
+        break;
+    case 4:
+        cout << "Choose amout of Credit : " << endl;
+        cin >> part;
+        cout << "Choose amout of peracentage : " << endl;
+        cin >> percent;
+        percent / 100;
+        cout << "Enter termin : " << endl;
+        cin >> term;
+
+        cout << Credit(balance, part, percent, term) << endl;
         cout << balance << endl;
         break;
     }
